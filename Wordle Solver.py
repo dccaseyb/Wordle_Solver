@@ -1,82 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[31]:
-
-
 import numpy as np
-
-
-# In[61]:
-
-
 import pandas as pd
 import random 
 import string
-
-
-# In[116]:
-
-
-def load_words( ): 
-       print("Loading word list from file...")
-       inFile = open('/Users/cbressler/Downloads/FiveLetterWords.csv', 'r') 
-       line = inFile.readline( ) 
-       wordlist = str.split(line) 
-       print(" ", len(wordlist), "words loaded.")
-       return wordlist
-
-def choose_word (wordlist): 
-       return random.choice (wordlist)
-
-wordlist = load_words( )
-
-
-# In[86]:
-
-
-from striprtf.striprtf import rtf_to_text
-with open('/Users/cbressler/Downloads/FiveLetterWords.csv', 'r') as infile:
-    content = infile.read()
-    text = rtf_to_text(content)
-print(text[1] + text[2] + text[3])
-
-
-# In[115]:
-
-
-df = pd.read_csv('/Users/cbressler/Downloads/FiveLetterWords.csv')
-#df = list(df)
-#x = len(df)
-#a = 0
-#df2 = []
-#while a < x:
-    #df2 = df2 + str(df[a])
-    #a = a + 1
-a = open('/Users/cbressler/Downloads/FiveLetterWords.csv', 'r')
-content = a.read()
-b = 0
-x = len(content)
-word_list = []
-
-for i in content:
-    word_list.append(i)
-#d = word_list[5] + word_list[1] + word_list[2] + word_list[3] + word_list[4]
-while b < x - 5:
-    c = (b * 6) + 1
-    d = word_list[c] + word_list[c+1] + word_list[c+2] + word_list[c+3] + word_list[c+4]
-    word_list[b] = d
-    b = b + 1
-
-#word_list[b] = d
-word_list
-#content[1] + content[2] + content[3] + content[4] + content[5]
     
-    
-
-
-# In[36]:
-
 
 a = open('/Users/cbressler/Downloads/FiveLetterWords.csv', 'r')
 word_list = a.read()
@@ -100,10 +26,6 @@ while end_game == 0:
         end_game = restart()
     else:
         word_removal(word_guess,word_list)
-    
-
-
-# In[39]:
 
 
 def restart():
@@ -152,22 +74,4 @@ def letter_finder(pos,char,result,wordlist):
                 wordlist.pop(a)
                 a = a + 1
     return(wordlist)     
-    
-        
-    
-
-
-# In[44]:
-
-
-x = df[20]
-print(df)
-
-
-# In[ ]:
-
-
-def word_contains(letter):
-    for x in df:
-        if 
-
+   
